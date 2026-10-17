@@ -1,0 +1,14 @@
+Check,Result,Treatment
+Rows / users,"204,694 rows, 18,000 users",-
+Date range,2024-01-01 to 2025-06-30 (18 months; brief says 6),Used all 18 months
+Nulls / duplicate transaction_id,0 / 0,-
+Out-of-sequence rows (IDs outside the user's block),"104 rows (TXN00204591-TXN00204694), 1 per user; every user had exactly 4 txns, all in M0; every row lands in M1",Quarantined (excluded) - see Q1c
+Package->carrier hierarchy violations,"5 rows, all 5 inside the out-of-sequence rows",Removed with them
+Outstanding rises by more than the txn amount,"5 rows, all 5 inside the out-of-sequence rows",Removed with them
+'Other services' vs 'Other Services' label,"5,727 rows (all Channel Partner)",Merged for category counts
+First-ever txn has outstanding < txn amount,35% of users,Use outstanding only directionally; confirm snapshot timing
+Same user + day + amount,61 pairs vs ~45 expected by chance,"Kept (mostly different merchants, balances add up)"
+total_limit changes over time,Never (100% of users have one value),Treated as static attribute
+Balance capped at the limit,"2,645 rows (671 users); 1,589 purchases made at an already-full limit",Kept; flagged
+Exact duplicates (all fields except ID),1 pair,Kept (immaterial)
+Users who return after a fully inactive month,"0 of 14,231 who had a later month to return in",Key finding - see Q1b

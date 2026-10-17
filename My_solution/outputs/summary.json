@@ -1,0 +1,89 @@
+{
+  "rows": 204694,
+  "users": 18000,
+  "months": 18,
+  "period": [
+    "2024-01",
+    "2025-06"
+  ],
+  "eligible_m1_users": 17404,
+  "m1_raw": 0.7356929441507699,
+  "m1_without_tail": 0.7297173063663526,
+  "tail_rows": 104,
+  "tail_users_with_four_m0_transactions": 104,
+  "tail_m1_added": 104,
+  "retention": [
+    {
+      "age": 1,
+      "cohorts": 17,
+      "users": 17404,
+      "retained": 12804,
+      "rate": 0.7356929441507699,
+      "ci_low": 0.7290900459776731,
+      "ci_high": 0.7421918158701507
+    },
+    {
+      "age": 2,
+      "cohorts": 16,
+      "users": 16754,
+      "retained": 9103,
+      "rate": 0.5433329354184075,
+      "ci_low": 0.5357811103907538,
+      "ci_high": 0.5508648929943122
+    },
+    {
+      "age": 3,
+      "cohorts": 15,
+      "users": 16065,
+      "retained": 6612,
+      "rate": 0.41157796451914097,
+      "ci_low": 0.4039899565261378,
+      "ci_high": 0.41920825086673374
+    },
+    {
+      "age": 6,
+      "cohorts": 12,
+      "users": 13726,
+      "retained": 2541,
+      "rate": 0.18512312399825148,
+      "ci_low": 0.17871382684748066,
+      "ci_high": 0.19170862580484999
+    },
+    {
+      "age": 9,
+      "cohorts": 9,
+      "users": 10867,
+      "retained": 931,
+      "rate": 0.08567221864359989,
+      "ci_low": 0.08055527031602522,
+      "ci_high": 0.09108200199967109
+    },
+    {
+      "age": 12,
+      "cohorts": 6,
+      "users": 7707,
+      "retained": 313,
+      "rate": 0.04061243025820682,
+      "ci_low": 0.036429489766444965,
+      "ci_high": 0.04525311152055333
+    }
+  ],
+  "peak_mau_month": "2024-10",
+  "peak_mau": 4162,
+  "final_mau": 3022,
+  "new_users_q1_2024_mean": 1366.6666666666667,
+  "new_users_final": 596,
+  "churn_rate_all": 0.24861401586827342,
+  "churn_rate_recent_6m": 0.2426625473950288,
+  "churn_standardised_by_tenure": {
+    "1": 0.29653600019176246,
+    "2-3": 0.2484314308539285,
+    "4+": 0.2099982218743378
+  },
+  "users_with_reactivation": 0,
+  "lapsed_with_two_months_to_return": 14226,
+  "one_txn_churn": 0.29913860610806575,
+  "four_plus_churn": 0.2100133943004942,
+  "n1_rolling_rate": 0.45574202040144784,
+  "n2_rolling_rate": 0.6283954074488939
+}

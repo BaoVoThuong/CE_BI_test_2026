@@ -1,0 +1,58 @@
+{
+  "mature_users_60_day_followup": 16886,
+  "day14_eligible_share": 0.3891389316593628,
+  "day14_eligible_outcome_rate": 0.6003652412113833,
+  "day14_natural_second_by_day30": 0.5375133160858316,
+  "same_cohort_M0_M6_users": 13726,
+  "active_user_months_M0_M6_per_new_user": 3.4299868862013696,
+  "gmv_M0_M6_vnd_per_new_user": 1855322.5994463062,
+  "merchant_breadth_raw_gap_pp": 6.891858020905661,
+  "merchant_breadth_frequency_adjusted_gap_pp": 1.7052796174738631,
+  "reference_month": "2024-10",
+  "reference_first_time_users": 1063,
+  "actual_final_mau": 3022,
+  "counterfactual_final_mau_same_cohort_rates": 4346.365459821386,
+  "churn_start_month": "2024-10",
+  "churn_end_month": "2025-05",
+  "churn_start": 0.24843825084094184,
+  "churn_end": 0.236626809314034,
+  "churn_change_composition_pp": -0.2470304294937692,
+  "churn_change_within_tenure_pp": -0.934113723197017,
+  "first_purchase_by_day3_share": 0.2535,
+  "all_transactions_by_day3_share": 0.09827352047446432,
+  "second_purchase_by_day7_share_mature": 0.39938410517588535,
+  "second_purchase_by_day14_share_mature": 0.6108610683406372,
+  "second_purchase_by_day30_share_mature": 0.8200284259149592,
+  "median_second_purchase_lag_days_among_repeaters": 8.0,
+  "first_carrier_global_M1_p": 0.37370921813691144,
+  "first_carrier_count": 21,
+  "balance_at_limit_transactions": 2645,
+  "transactions_with_prior_balance_at_limit_and_current_at_limit": 1589,
+  "first_purchase_balance_below_purchase_share": 0.351,
+  "user_month_balance_at_or_above_80pct_share": 0.020911045078080545,
+  "top_10pct_user_month_gmv_share": 0.28887470809089993,
+  "pilot_dry_run_cohort": "2025-05",
+  "pilot_dry_run_eligible": 241,
+  "pilot_dry_run_arm_counts": {
+    "prompt": 136,
+    "holdout": 105
+  },
+  "current_inflow_for_sizing": 596,
+  "estimated_day14_eligible_per_month": 231.92680326898022,
+  "sample_size": [
+    {
+      "absolute_lift_pp": 5.0,
+      "baseline": 0.6003652412113833,
+      "users_per_arm": 1470,
+      "total_eligible": 2940,
+      "estimated_months_at_current_inflow": 13
+    },
+    {
+      "absolute_lift_pp": 10.0,
+      "baseline": 0.6003652412113833,
+      "users_per_arm": 356,
+      "total_eligible": 712,
+      "estimated_months_at_current_inflow": 4
+    }
+  ]
+}

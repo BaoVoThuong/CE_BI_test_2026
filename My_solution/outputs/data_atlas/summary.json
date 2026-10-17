@@ -1,0 +1,52 @@
+{
+  "rows": 204694,
+  "users": 18000,
+  "date_range": [
+    "2024-01-01",
+    "2025-06-30"
+  ],
+  "months": 18,
+  "null_cells": 0,
+  "duplicate_transaction_ids": 0,
+  "user_ids_complete_range": true,
+  "transaction_ids_complete_range": true,
+  "users_with_one_contiguous_id_block": 17896,
+  "users_with_two_id_blocks": 104,
+  "first_block_user_ids_monotonic": true,
+  "appended_rows": 104,
+  "appended_id_range": [
+    "TXN00204591",
+    "TXN00204694"
+  ],
+  "new_user_loglinear_monthly_change": -0.04812115730253297,
+  "new_user_loglinear_r_squared": 0.9749791678717987,
+  "first_purchases_days_1_to_3_share": 0.2535,
+  "all_transactions_days_1_to_3_share": 0.09827352047446432,
+  "weekday_index_range": [
+    0.9859348525992394,
+    1.0076214451941146
+  ],
+  "median_within_month_daily_cv": 0.05023399848162102,
+  "median_poisson_cv_at_same_daily_mean": 0.05025760109099881,
+  "amounts_multiple_of_1000_share": 1.0,
+  "limits_multiple_of_100000_share": 1.0,
+  "package_count": 7,
+  "carrier_labels": 22,
+  "package_carrier_pairs": 38,
+  "rare_pair_rows": 5,
+  "rare_pair_rows_in_appended_tail": 5,
+  "carrier_lowercase_other_services_rows": 5727,
+  "duplicate_rows_except_transaction_id": 1,
+  "package_mean_ticket_min_vnd": 168106.73000791765,
+  "package_mean_ticket_max_vnd": 171192.6505762122,
+  "largest_package_share_range_pp": 3.1178400377082918,
+  "balance": {
+    "first_transaction_balance_below_purchase_share": 0.351,
+    "transactions_at_limit": 2645,
+    "transactions_at_limit_with_prior_recorded_balance_at_limit": 1589,
+    "transactions_above_limit": 0,
+    "users_with_multiple_limit_values": 0,
+    "median_last_recorded_utilisation_per_user_month": 0.0679719937328633,
+    "user_months_at_or_above_80pct_limit_share": 0.020911045078080545
+  }
+}

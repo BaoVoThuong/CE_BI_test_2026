@@ -1,0 +1,10 @@
+,Stayed (active next month),Churned (no txn next month)
+user_months,45164.0,14981.0
+avg_txns,3.316,2.975
+share_1_txn,0.258,0.325
+share_4plus_txn,0.376,0.31
+avg_ticket,169144.919,169811.996
+merchant_categories,1.927,1.803
+util_end,0.069,0.064
+credit_limit,5251598.618,5221600.694
+tenure_months,2.443,2.244

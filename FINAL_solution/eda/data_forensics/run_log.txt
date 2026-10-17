@@ -1,0 +1,400 @@
+
+====================================================================================================
+0. LOAD
+====================================================================================================
+  raw_rows = 204694
+  oos_rows = 104
+  oos_seq_min = 204591
+  oos_seq_max = 204694
+  clean_rows = 204590
+
+====================================================================================================
+1. total_outstanding - balance rule reconstruction
+====================================================================================================
+  bal_share_same(prev+amt) = 0.637127914365316
+  bal_share_capped_at_limit = 0.012894080844616062
+  bal_share_paid_down = 0.34997800479006796
+  bal_rule_coverage_clean = 1.0
+  bal_rule_violations_clean = 0
+  bal_rule_rows_needing_over_500vnd_tolerance = 2
+  bal_rule_violations_raw = 19
+  p_paydown = 0.34997800479006796
+  p_paydown_ci95 = [0.34791120565158584, 0.3520448039285501]
+  p_paydown_first_txn = 0.351
+  p_paydown_later_txn = 0.3498794147596334
+  paydown_u_KS_vs_U(0,0.7)_p = 0.8005172961129357
+  paydown_u_max = 0.7058823529411765
+  paydown_u_hist_0to0.7_step0.05 = [5151, 5136, 5085, 5184, 4979, 5130, 5105, 5076, 5117, 5081, 5207, 5076, 5094, 5149]
+  balance_zero_rows = 146
+  balance_zero_expected_if_rounded = 168.69292358532283
+  balance_zero_expected_if_floored = 337.38584717064566
+               mean   size
+gap                       
+(-1, 0]    0.348908  12542
+(0, 1]     0.345985  22105
+(1, 3]     0.349822  34872
+(3, 7]     0.350656  44374
+(7, 14]    0.350252  38321
+(14, 30]   0.351213  27331
+(30, 400]  0.352023   7045
+  paydown_vs_gap_chi2_p = 0.9175446818481596
+  paydown_same_month = 0.34941948439466575
+  paydown_crossed_month_boundary = 0.35131963510760783
+  paydown_same_day_as_prev = 0.3489076702280338
+  paydown_gap_30plus = 0.3518825781748564
+  paydown_vs_day_of_month_chi2_p = 0.7635379602499366
+  paydown_given_prev_paydown = 0.34948022719965705
+  paydown_given_prev_no_paydown = 0.35009441508002603
+  paydown_user_heterogeneity_dispersion = 0.9981523739113548
+  paydown_user_heterogeneity_p = 0.5408627917694151
+  paydown_users_tested(n>=10) = 6864
+  paydown_full_prior_balance_cleared_share = 0.002821150247199799
+  paydown_amount_mult_10k_share = 0.10163123935085612
+  rows_balance_below_purchase_amount = 38228
+  rows_balance_below_purchase_amount_share = 0.18685175228505793
+  first_txn_balance_below_amount_share = 0.351
+  first_txn_balance_above_amount_rows = 0
+  balance_above_limit_rows = 0
+  rows_balance_eq_limit = 2645
+  users_balance_eq_limit = 671
+  purchases_at_already_full_limit = 1589
+  purchases_exceeding_available_headroom = 4032
+  purchases_made_with_zero_headroom = 2394
+  over_headroom_purchases_capped_share = 0.654265873015873
+  over_headroom_purchases_paid_down_share = 0.345734126984127
+                            median           mean    size
+head                                                     
+(-1.0, 0.0]               135000.0  163151.629073    2394
+(0.0, 100000.0]           129000.0  160504.987531     802
+(100000.0, 200000.0]      129000.0  164008.325624    1081
+(200000.0, 500000.0]      133000.0  162205.900305    4915
+(500000.0, 1000000.0]     132000.0  167609.302783   10169
+(1000000.0, 100000000.0]  133000.0  170200.993847  167229
+                         median_balance  median_util
+limb                                                
+(0.0, 1000000.0]               304000.0     0.413750
+(1000000.0, 2000000.0]         328000.0     0.217333
+(2000000.0, 3000000.0]         326000.0     0.128261
+(3000000.0, 5000000.0]         334000.0     0.083158
+(5000000.0, 7500000.0]         328000.0     0.052256
+(7500000.0, 10000000.0]        329000.0     0.037629
+  median_balance_limit_le1m = 304000.0
+  median_balance_limit_gt7.5m = 329000.0
+  median_util_limit_le1m = 0.41375
+  median_util_limit_gt7.5m = 0.03762886597938144
+share of users ever at limit by limit band
+ lim
+(0.0, 600000.0]            0.495845
+(600000.0, 1000000.0]      0.325936
+(1000000.0, 1500000.0]     0.154291
+(1500000.0, 2000000.0]     0.075138
+(2000000.0, 3000000.0]     0.014571
+(3000000.0, 10000000.0]    0.000152
+dtype: float64
+
+====================================================================================================
+2. trxn_amount
+====================================================================================================
+  amount_unique = 1192
+  amount_min = 20000.0
+  amount_max = 4392000.0
+  amount_all_multiples_of_1000 = True
+  amount_rows_at_20000 = 787
+  amount_rows_at_21000 = 160
+  amount_rows_above_0.6_limit = 0
+  amount_rows_at_exactly_0.6_limit = 698
+  amount_users_hitting_0.6_cap = 460
+  amount_max_over_limit = 0.6
+  amount_rows_at_exactly_0.5_limit = 9
+  amount_rows_at_exactly_0.4_limit = 16
+  amount_rows_at_exactly_0.3_limit = 43
+  amount_lognormal_median = 133372.80257434613
+  amount_lognormal_sigma = 0.699101360151676
+  amount_share_at_20k_observed = 0.0038467178258956938
+  amount_share_below_20.5k_under_lognormal = 0.003694789170617786
+               rows  share_at_0.6_limit  lognormal_mass_above
+total_limit                                                  
+500000       1830.0            0.108197              0.123605
+600000       1857.0            0.075390              0.078045
+700000       2179.0            0.054153              0.050593
+800000       1976.0            0.030870              0.033599
+900000       2214.0            0.018970              0.022805
+1000000      2024.0            0.014822              0.015784
+1100000      2053.0            0.009255              0.011119
+1200000      2699.0            0.008892              0.007958
+1300000      2163.0            0.006935              0.005778
+1400000      2633.0            0.005697              0.004251
+  amount_lognormal_bin_ratio_obs_over_exp(limit>=2M) = [0.976, 0.984, 0.994, 0.991, 1.002, 1.011, 1.006, 1.01, 1.0, 1.01, 1.002, 1.002, 0.926]
+  amount_share_multiple_of_10000 = 0.10612444400997116
+  amount_share_multiple_of_10000_expected_smooth = 0.10023736331214565
+  amount_share_multiple_of_50000 = 0.021472212718119166
+  amount_share_multiple_of_50000_expected_smooth = 0.020236453582718063
+  amount_share_multiple_of_100000 = 0.010728774622415563
+  amount_share_multiple_of_100000_expected_smooth = 0.009469974685894382
+  amount_share_mult_50k_Telco = 0.021890708610345387
+  amount_share_mult_50k_Voucher Selling = 0.02234194263983521
+  amount_share_mult_50k_Billing = 0.021027058724972774
+  amount_rows_100k = 1042
+  amount_rows_99k = 1010
+  amount_rows_101k = 1084
+  amount_last_thousand_digit_chi2_p = 2.3666410423637754e-17
+  amount_last_thousand_digit_chi2_p_excl_clipped = 0.11072806573250399
+  amount_share_multiple_of_10000_excl_clipped = 0.09958888259767115
+  amount_share_multiple_of_50000_excl_clipped = 0.02046232244405603
+  amount_share_multiple_of_100000_excl_clipped = 0.009640333817483568
+  amount_user_ICC_log = -0.0007381780091542525
+  amount_user_anova_p = 0.7760111850102156
+  amount_lag1_corr_within_user = -0.001471076661320767
+  user_gmv_vs_txn_count_R2 = 0.962817251432985
+
+====================================================================================================
+3. Dependence screen
+====================================================================================================
+        feature  levels  eta2_log_amount  kruskal_p  median_amt_min  median_amt_max  paydown_chi2_p  paydown_rate_min  paydown_rate_max
+0  package_code       7          0.00001    0.74894        133000.0        135000.0         0.20022           0.34360           0.35384
+1       carrier      22          0.00008    0.89078        131000.0        136000.0         0.61172           0.34339           0.36637
+2       lim_dec      10          0.00007    0.31999        132000.0        135000.0         0.07620           0.34472           0.35956
+3           dow       7          0.00007    0.07759        132000.0        135000.0         0.98754           0.34836           0.35170
+4           dom      31          0.00013    0.59850        131000.0        136000.0         0.76589           0.33878           0.36465
+5         mon_s      18          0.00008    0.61187        130000.0        135000.0         0.21579           0.33920           0.36329
+6         age_b      13          0.00005    0.64227        130000.0        136000.0         0.19531           0.32069           0.35859
+7           k_b      21          0.00008    0.57900        129000.0        136000.0         0.64591           0.33854           0.35880
+8       uid_dec      10          0.00002    0.91923        132000.0        134000.0         0.08019           0.34187           0.35641
+9         n_mon       8          0.00005    0.17738        131000.0        135000.0         0.04332           0.34071           0.35487
+  dep_max_eta2_amount = 0.0001269233274946029
+  dep_min_p_amount = 0.07758641938086959
+  dep_min_p_paydown = 0.0433176897960168
+               uid    lim  cohort_i  first_dom      n  months    gmv  mean_ticket  first_amt
+uid          1.000 -0.004     0.011      0.007 -0.004  -0.004 -0.003        0.005      0.007
+lim         -0.004  1.000     0.001      0.002  0.003   0.000  0.008        0.015      0.000
+cohort_i     0.011  0.001     1.000      0.007 -0.120  -0.156 -0.118       -0.018     -0.010
+first_dom    0.007  0.002     0.007      1.000 -0.279  -0.071 -0.267       -0.046     -0.010
+n           -0.004  0.003    -0.120     -0.279  1.000   0.844  0.962        0.145     -0.001
+months      -0.004  0.000    -0.156     -0.071  0.844   1.000  0.814        0.120     -0.003
+gmv         -0.003  0.008    -0.118     -0.267  0.962   0.814  1.000        0.385      0.111
+mean_ticket  0.005  0.015    -0.018     -0.046  0.145   0.120  0.385        1.000      0.446
+first_amt    0.007  0.000    -0.010     -0.010 -0.001  -0.003  0.111        0.446      1.000
+  spearman_lim_n = [0.0031, 0.6750056048193864]
+  spearman_lim_gmv = [0.0078, 0.2957445934053681]
+  spearman_lim_mean_ticket = [0.0151, 0.04217597662586486]
+  spearman_lim_first_amt = [0.0005, 0.9467217041300605]
+  spearman_lim_cohort_i = [0.0011, 0.8818503212955124]
+  spearman_uid_cohort_i = [0.0114, 0.126012215103271]
+  spearman_uid_lim = [-0.0039, 0.6004726195018848]
+  spearman_mean_ticket_months = [0.1202, 6.388690715520001e-59]
+  spearman_mean_ticket_n = [0.1449, 4.359304924413932e-85]
+
+====================================================================================================
+4. total_limit
+====================================================================================================
+  limit_constant_per_user = True
+  limit_levels = 95
+  limit_grid_is_full_100k_grid_0.5_to_9.9m = True
+  limit_users_per_level_min = 161
+  limit_users_per_level_max = 245
+  limit_users_per_level_chi2_uniform_p = 0.013431270726695735
+  limit_users_per_level_var_over_mean = 1.3500827423167845
+  limit_mean = 5230044.444444444
+  limit_median = 5300000.0
+  limit_by_cohort_kruskal_p = 0.6799729161833912
+  limit_cohort_mean_min = 5053181.818181818
+  limit_cohort_mean_max = 5388523.047977422
+
+====================================================================================================
+5. trxn_date
+====================================================================================================
+  calendar_days = 547
+  days_with_transactions = 547
+  file_sorted_by_date = True
+  dom_uniform_chi2_age1plus = 36.69741634934004
+  dom_uniform_p_age1plus = 0.18612503076662923
+  dom_ratio_min_age1plus = 0.9719308904744953
+  dom_ratio_max_age1plus = 1.0423665318499897
+  daily_count_dispersion_age1plus = 1.0427578459032492
+  daily_count_dispersion_p = 0.2460342729474267
+  daily_max_abs_z = 2.812444520754366
+  daily_max_abs_z_date = 2025-02-12
+  dow_ratio_age1plus = [0.998, 0.993, 1.006, 1.008, 1.002, 0.983, 1.011]
+  dow_chi2_p_age1plus = 0.055843630058825595
+                     window  observed  expected  ratio     z
+0       Tet 2024 (8-14 Feb)       688     755.0  0.911 -2.44
+1   Tet 2025 (27 Jan-2 Feb)      2301    2313.9  0.994 -0.27
+2             30/4-1/5 2024       524     512.9  1.022  0.49
+3             30/4-1/5 2025       578     580.9  0.995 -0.12
+4                  2/9 2024       333     341.4  0.975 -0.46
+5                  9/9 2024       363     341.4  1.063  1.17
+6                10/10 2024       303     326.9  0.927 -1.32
+7                11/11 2024       348     355.0  0.980 -0.37
+8                12/12 2024       329     326.6  1.007  0.13
+9   Black Friday 29/11/2024       366     355.0  1.031  0.59
+10            24-25/12/2024       628     653.2  0.961 -0.99
+11                 1/1/2025       344     322.6  1.066  1.19
+12                 3/3 2025       273     298.5  0.915 -1.48
+13                 6/6 2025       296     277.7  1.066  1.10
+  holiday_max_abs_z = 2.44
+   n0  users  mean_first_day  model_min_of_n_uniform  mean_last_day  model_max_of_n_uniform  KS_p_first_day
+0   1   5585          15.831                  15.703         15.831                  15.703           0.173
+1   2   3653          10.442                  10.632         20.695                  20.747           0.116
+2   3   2929           8.064                   8.116         23.159                  23.316           0.795
+3   4   2153           6.384                   6.597         24.831                  24.833           0.266
+4   5   1404           5.647                   5.585         25.892                  25.841           0.663
+5   6    882           4.914                   4.864         26.549                  26.566           0.796
+6   7    540           4.213                   4.319         26.991                  27.078           0.203
+7   8    336           3.967                   3.900         27.366                  27.499           0.280
+  first_day_model_KS_p_min = 0.11585433537088341
+  first_day_model_KS_p_max = 0.7959667359864405
+  first_day_n0eq1_mean = 15.830975828111011
+  first_day_n0eq1_model = 15.702954341987466
+  users_active_M0_M1_M2 = 9103
+  mean_n_M0_M1_M2_same_users = [3.232, 3.224, 3.23]
+  wilcoxon_n0_vs_n1_p = 0.886122313806167
+  users_active_M0_M1 = 12700
+  mean_n0_n1_active_M0_M1 = [3.123, 3.12]
+mean n0 and n1 by first-transaction day band (users active M0&M1)
+ age          0     1
+fd                  
+(0, 3]    4.42  3.69
+(3, 7]    3.65  3.38
+(7, 14]   2.78  2.95
+(14, 21]  1.91  2.59
+(21, 31]  1.26  2.29
+  mean_n_M0_M1_M2_2024H1 = [3.237, 3.225, 3.235, 4192]
+  mean_n_M0_M1_M2_2024H2 = [3.209, 3.186, 3.198, 3261]
+  mean_n_M0_M1_M2_2025 = [3.262, 3.296, 3.283, 1650]
+  first_day_band_by_cohort_chi2_p = 0.8731488207871705
+  first_day_le3_share = 0.2535
+  first_day_le3_share_by_cohort_min_max = [0.23600746268656717, 0.26904985888993416]
+  m0_offset0_observed = 819
+  m0_offset0_model = 831.05
+  m0_offset_1to5_observed = [1509, 1606, 1518, 1621, 1569]
+  m0_offset_1to5_model = [1597.0, 1596.0, 1583.0, 1568.0, 1560.0]
+  m0_offset_chi2_p_vs_model = 0.015970730721687948
+  same_day_pairs_observed = 13231.0
+  same_day_pairs_expected_uniform = 13150.11136447905
+
+====================================================================================================
+6. transaction_id / user_id
+====================================================================================================
+  txn_id_blocks_follow_user_id_order = True
+  txn_id_date_decreasing_within_user = 0
+  user_id_min = 100000
+  user_id_max = 117999
+  user_id_count = 18000
+  spearman_user_id_first_date = [0.0117, 0.11679260746217499]
+  share_dates_where_file_order_follows_txn_id = 0.0
+
+====================================================================================================
+7. package_code x carrier
+====================================================================================================
+  pairs_clean = 34
+  pair_rows_min = 5411
+  pair_rows_max = 6495
+  pair_rows_cv = 0.0424206928671975
+                          carriers  share_if_equal_per_pair  gmv_share
+package_code                                                          
+Insurance - Distribution         1                 0.029412   0.030244
+Voucher Selling                  1                 0.029412   0.030564
+Mobility Services                3                 0.088235   0.086571
+Strategic Partnership            3                 0.088235   0.090692
+Daily life service               5                 0.147059   0.151246
+Digital Services                 9                 0.264706   0.260524
+Channel Partner                 12                 0.352941   0.350159
+  package_gmv_share_vs_carrier_count_max_abs_diff_pp = 0.41868715469589035
+  package_gmv_share_vs_carrier_count_corr = 0.9998089557041558
+  pair_mix_by_month_cramersV = 0.018387097587529422
+  pair_share_max_monthly_range_pp = 1.2204863851125352
+  p_same_pair_as_previous = 0.40102899405112813
+  p_same_pair_iid_expectation = 0.029463134949005185
+P(same pair as previous) by gap
+ gap
+(-1, 0]      0.398900
+(0, 3]       0.400039
+(3, 7]       0.400933
+(7, 14]      0.400877
+(14, 30]     0.404486
+(30, 400]    0.400852
+Name: same, dtype: float64
+  p_same_pair_min_over_gap_bands = 0.3988996970180195
+  p_same_pair_max_over_gap_bands = 0.40448574878343274
+          label_a         label_b  users_with_both  expected_if_same_merchant(random_label)  ratio
+0  Other services  Other Services              253                                   1230.5  0.206
+1         Billing             FnB              273                                   1263.2  0.216
+2        Shopping          Retail              293                                   1259.1  0.233
+3            Game   Entertainment              275                                   1232.9  0.223
+4  Other Services     Marketplace              257                                   1285.7  0.200
+  lowercase_vs_uppercase_co_usage_ratio = 0.206
+  distinct_carrier_pairs_co_usage_ratio_range = [0.2, 0.233]
+  lowercase_months_present = 18
+  lowercase_rows = 5725
+
+====================================================================================================
+8. The 104 out-of-sequence rows
+====================================================================================================
+  oos_follow_balance_rule_same = 0
+  oos_follow_any_balance_rule = 85
+  oos_violate_balance_rule = 19
+  oos_balance_equals_one_of_users_earlier_balances = 104
+  oos_balance_source_position_counts(k=0..3) = [27, 29, 23, 25]
+  baseline_5th_txn_balance_in_first4 = 0.007801542776998597
+  baseline_5th_txn_amount_in_first4 = 0.014638849929873772
+  baseline_5th_txn_carrier_in_first4 = 0.7287868162692848
+  baseline_5th_txn_package_in_first4 = 0.8293302945301543
+  oos_amount_in_users_earlier_amounts = 0.0
+  oos_carrier_in_users_earlier_carriers = 1.0
+  oos_package_in_users_earlier_packages = 1.0
+  oos_limit_equals_user_limit = 1.0
+  oos_amount_KS_vs_organic_p = 0.9897006398870615
+  oos_gap_days_mean = 22.134615384615383
+  oos_day_of_month_mean = 16.778846153846153
+  oos_day_of_month_max = 29
+  organic_comparator_users = 1599
+  organic_comparator_gap_mean = 14.659161976235147
+  organic_comparator_first_M1_dom_mean = 9.0093808630394
+  oos_vs_organic_gap_KS_p = 1.0451455317868908e-12
+  oos_vs_organic_M1_dom_KS_p = 8.495183098456513e-17
+  oos_dom_chi2_vs_uniform_1_29_p = 0.318791077532397
+  eligible_pool_users(4 txns,M0 only) = 475
+  injected_share_of_pool = 0.21894736842105264
+  injected_vs_pool_limit_KS_p = 0.584515768775526
+  injected_vs_pool_cohort_KS_p = 0.16820849020450404
+  injected_vs_pool_first_dom_KS_p = 0.9998975420523518
+  oos_file_rows_interleaved_by_date = True
+  oos_id_order_vs_user_id_spearman = [0.049, 0.6186567818733864]
+
+====================================================================================================
+9. Re-checks of existing claims
+====================================================================================================
+      transaction_id  user_id   trxn_date  trxn_amount       package_code carrier  total_outstanding  total_limit
+59913    TXN00016242   101426  2024-07-07     300000.0  Mobility Services     3PL           500000.0       500000
+59652    TXN00016243   101426  2024-07-07     300000.0  Mobility Services     3PL           500000.0       500000
+  exact_dup_amount_over_limit = 0.6
+  exact_dup_balance_equals_limit = True
+  same_user_day_amount_pairs = 61
+  expected_global_pmf = 45.49123717095704
+  expected_limit_specific_pmf = 54.20747896305392
+  p_value_global = 0.016147558424499216
+  p_value_limit_specific = 0.1945796438221234
+  same_user_day_amount_carrier_pairs = 19
+  churn_logit_atlim_coef_p = [0.207, 0.020569496106413974]
+  churn_logit_hi80_coef_p = [0.066, 0.3646318805149398]
+  churn_logit_util_coef_p = [0.071, 0.31610902816149544]
+  churn_logit_atlim_2024 = [0.257, 0.01621810445335286, 514]
+  churn_logit_atlim_2025 = [0.083, 0.611453644501646, 230]
+  hungry_users_jun25 = 128
+  hungry_auc_from_limit_and_count_only = 0.9711010463507437
+  users_whose_first_balance_exceeds_first_amount = 0
+  m1_first_day_band_LR_given_n0 = 7.628785133398196
+  m1_first_day_band_p_given_n0 = 0.10616267581553548
+  m1_raw_by_first_day_band = {'(0, 3]': 0.758, '(14, 21]': 0.72, '(21, 31]': 0.675, '(3, 7]': 0.735, '(7, 14]': 0.728}
+  mean_n0_first_day_1_3 = 4.291723202170964
+  mean_n0_all = 3.0237876350264306
+  new_users_exp_monthly_change = -0.04684818832488147
+  new_users_pearson_dispersion = 1.891202574284459
+  new_users_dispersion_p = 0.016703510884972746
+  new_users_pearson_resid = {'2024-01': -1.99, '2024-02': -1.14, '2024-03': 1.28, '2024-04': -0.21, '2024-05': -0.01, '2024-06': 0.06, '2024-07': -0.64, '2024-08': 1.02, '2024-09': 0.63, '2024-10': 3.78, '2024-11': 0.45, '2024-12': 0.68, '2025-01': 0.74, '2025-02': -0.34, '2025-03': -0.69, '2025-04': -0.78, '2025-05': -1.02, '2025-06': -1.93}
+  new_users_dispersion_excl_oct24 = 1.0120570702368963
+  new_users_dispersion_p_excl_oct24 = 0.43846999107365103
+  new_users_oct24_expected_from_fit_excl_oct24 = 939.3967104064562
+  new_users_oct24_observed = 1063
+
+Wrote 232 numbers to /Users/vothuongbao/Downloads/CE_BI_test_2026/FINAL_solution/eda/data_forensics/eda_numbers.json and tables to /Users/vothuongbao/Downloads/CE_BI_test_2026/FINAL_solution/eda/data_forensics/tables

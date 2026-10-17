@@ -1,0 +1,424 @@
+
+================================================================================
+0. LOAD
+================================================================================
+  clean_rows = 204590
+  users = 18000
+  seq_order_equals_date_order = True
+
+================================================================================
+A1. Heavy users 38% of base, 65% of GMV (last 6 months)
+================================================================================
+  a1_heavy_share_user_months = 0.37964458804523427
+  a1_heavy_share_gmv = 0.654544024671842
+  a1_light_share_user_months = 0.25740441572428646
+  a1_light_share_gmv = 0.07672776277255379
+  a1_gmv_per_um_light_k = 169.22575123621147
+  a1_gmv_per_um_medium_k = 420.3346371729161
+  a1_gmv_per_um_heavy_k = 978.794584139265
+  a1_top10_share_all = 0.38561675786579325
+  a1_top20_share_all = 0.5769404424624194
+  a1_top10_share_complete = 0.38126229680236157
+  a1_top20_share_complete = 0.5716983281414253
+  a1_gini_lifetime_gmv_all = 0.5470608764384567
+  a1_gini_lifetime_gmv_complete = 0.5405802970539291
+  a1_users_heavy_in_2of3_months_share_among_3plus_full_months = 0.2539322444041137
+
+================================================================================
+A2. Base getting heavier as it shrinks
+================================================================================
+  a2_heavy_share_jun24 = 0.35977267111440575
+  a2_heavy_share_jun25 = 0.39118913547532297
+  a2_txn_per_user_oct24 = 3.1898916967509026
+  a2_txn_per_user_jun25 = 3.3915203709837694
+  a2_change_total = 0.2016286742328668
+  a2_change_mix = 0.046328967242935615
+  a2_change_within = 0.15529970698993126
+  a2_m0_share_oct24 = 0.2558363417569194
+  a2_m0_share_jun25 = 0.19741636303411725
+  a2_change_mix_exact_age = 0.07721663094200715
+  a2_change_within_exact_age = 0.12441204329085964
+  a2_calendar_trend_per_month_within_age = 0.007298680057800365
+  a2_calendar_trend_ci_lo = -0.0016731395622116892
+  a2_calendar_trend_ci_hi = 0.016270499677812418
+  a2_calendar_trend_p = 0.11083447649235822
+  a2_calendar_trend_raw_per_month = 0.017103669471392788
+  a2_calendar_trend_raw_p = 4.2746017359839e-05
+
+================================================================================
+A4. Lifetime value ~2.3M VND (sBG) / 1.85M VND fixed 7-month window
+================================================================================
+  a4_sbg_expected_active_months = 4.098550336441365
+  a4_sbg_lifetime_gmv_m = 2.290651362431469
+  a4_fixed_M0_M6_users = 13726
+  a4_fixed_M0_M6_gmv_m = 1.8541961241439604
+  a4_fixed_M0_M6_active_months = 3.4237942590703776
+  a4_fixed_M0_M11_users = 8779
+  a4_fixed_M0_M11_gmv_m = 2.144397995215856
+  a4_fixed_M0_M11_active_months = 3.884497095341155
+
+================================================================================
+B1. Monthly frequency is noisy; classify on a 2-3 month average
+================================================================================
+  b1_light_to_heavy = 0.13654545454545455
+  b1_heavy_to_light = 0.1064615953073761
+  b1_heavy_stay = 0.4435360953304697
+  b1_var_to_mean = 0.8363444231819955
+  b1_icc_single_month_count = 0.4459723436218601
+  b1_reliability_1_month_avg = 0.4459723436218601
+  b1_reliability_2_month_avg = 0.6168476812008619
+  b1_reliability_3_month_avg = 0.7071649820876766
+  b1_reliability_6_month_avg = 0.8284670661682516
+  b1_split_half_corr_monthly_count = 0.6979491970415515
+  b1_split_half_users = 4797
+
+================================================================================
+B2/N1. No fading; churn follows a stable personal rate, not this month's dip
+================================================================================
+  n1_panel_user_months = 21798
+  n1_coef_logn_t = -0.0876772964937876
+  n1_coef_logn_t_lo = -0.13755121453874314
+  n1_coef_logn_t_hi = -0.037803378448832047
+  n1_coef_logn_t1 = -0.11613146364776189
+  n1_coef_logn_t1_lo = -0.1664775519526499
+  n1_coef_logn_t1_hi = -0.06578537534287388
+  n1_coef_logn_t2 = -0.13716606124923045
+  n1_coef_logn_t2_lo = -0.18794511918835752
+  n1_coef_logn_t2_hi = -0.08638700331010338
+  n1_wald_p_t_eq_t1 = 0.47999200914151885
+  n1_wald_p_t_eq_t2 = 0.22685840168404375
+  n1_coef_log_avg3 = -0.3499306249004703
+  n1_p_log_avg3 = 3.863153383144243e-30
+  n1_coef_dev = 0.03759439798386092
+  n1_coef_dev_lo = -0.030906704397293934
+  n1_coef_dev_hi = 0.10609550036501578
+  n1_p_dev = 0.28208084320224036
+  n1_auc_this_month = 0.5353959461649825
+  n1_auc_avg3 = 0.5529739178771781
+  n1_churn_avg3_le1 = 0.3249701314217443
+  n1_churn_avg3_6plus = 0.19032921810699588
+  n1_churn_this_month_le1 = 0.27086614173228346
+  n1_churn_this_month_6plus = 0.20611015490533563
+  n1_mid_avg_band_churn_1 = 0.22283356258596973
+  n1_mid_avg_band_n_1 = 1454
+  n1_mid_avg_band_churn_2_3 = 0.22584925690021232
+  n1_mid_avg_band_n_2_3 = 3768
+  n1_mid_avg_band_churn_4p = 0.21720733427362482
+  n1_mid_avg_band_n_4p = 2127
+  n1_churners_last_minus_own_avg = 0.03306188540888481
+  n1_churners_last_minus_own_avg_ci = 0.05277367516885777
+  n1_churners_paired_n = 5049
+  n1_churners_paired_p = 0.25101728132884304
+  n1_placebo_last_minus_own_avg = 0.053128537773451404
+  n1_placebo_paired_p = 0.9670602994273934
+  b2_churn_below_half = 0.23162835869213338
+  b2_churn_80_120 = 0.23236672153982524
+
+================================================================================
+C1/N2. No loyal core: tenure has no effect once the personal rate is known
+================================================================================
+  c1_sbg_mean_churn = 0.2633253108182837
+  c1_sbg_sd_churn = 0.06955461685636105
+  c1_hazard_M1 = 0.25537832310838443
+  c1_hazard_M9plus = 0.228643216080402
+  n2_age_coef_raw = -0.01996622544522892
+  n2_age_p_raw = 6.046685152893254e-06
+  n2_age_coef_ctrl = -0.00572461198365762
+  n2_age_p_ctrl = 0.2043831608293526
+  n2_age_coef_ctrl_lo = -0.014565114681558201
+  n2_age_coef_ctrl_hi = 0.0031158907142429613
+  n2_logcum_coef = -0.33211382870662015
+  n2_logcum_p = 3.3275231910451155e-65
+  n2_running_freq_M1 = 3.1244989775051124
+  n2_running_freq_M9plus = 3.785357173767977
+  n2_within_user_freq_slope_per_month = -0.0001514844042518481
+  n2_within_user_freq_slope_ci_lo = -0.008714750217423373
+  n2_within_user_freq_slope_ci_hi = 0.008411781408919678
+  n2_ticket_vs_age_spearman = 0.0023385354846886114
+  n2_ticket_vs_age_p = 0.2901682431233918
+  n2_category_mix_max_dev_pp_by_tenure = 1.159819227845521
+  n2_category_mix_chi2_p_by_tenure_naive = 8.407095816845511e-05
+  n2_category_mix_within_user_perm_p = 0.15920398009950248
+
+================================================================================
+N3. Value = tenure x frequency; ticket size is not a user trait
+================================================================================
+  n3_ticket_icc = -0.00032057769423852957
+  n3_ticket_anova_F = 0.994695633651091
+  n3_ticket_anova_p = 0.649892458122348
+  n3_ticket_split_half_corr = -0.007382068334552747
+  n3_var_share_months = 0.49745101988658796
+  n3_var_share_freq = 0.34639796345081414
+  n3_var_share_ticket = 0.1561510166625983
+  n3_top10_months = 8.028685790527017
+  n3_rest_months = 2.7121346981160066
+  n3_top10_freq = 5.097709735805231
+  n3_rest_freq = 2.722874800700791
+  n3_top10_ticket_k = 178.85982385513574
+  n3_rest_ticket_k = 167.7795283820534
+  n3_top10_limit_m = 5.242761841227485
+  n3_rest_limit_m = 5.219247886070316
+  n3_corr_month_gmv_vs_n = 0.8566683907055206
+
+================================================================================
+N4. Early value: the first full month predicts future value; first-purchase attributes don't
+================================================================================
+  n4_users_active_m1_cohorts_le_jun24 = 6386
+  n4_r2_first_purchase_attrs_future_gmv = 0.003690745838422327
+  n4_r2_m0_m1_counts_future_gmv = 0.021284827625238645
+  n4_r2_first_purchase_attrs_future_months = 0.0069989484912748035
+  n4_r2_m0_m1_counts_future_months = 0.031248699306643313
+  n4_p_first_amt_future_months = 0.5608940364011098
+  n4_p_limit_future_months = 0.10373886911170743
+  n4_p_first_pkg_future_months = 0.4940957328393645
+  n4_future_gmv_m1_1txn_k = 993.8537761114087
+  n4_future_gmv_m1_4p_k = 2609.5988753514525
+  n4_future_months_m1_1txn = 2.4381360471344404
+  n4_future_months_m1_4p = 3.473758200562324
+  n4_share_m1_1txn = 0.2923582837456937
+  n4_share_m1_4p = 0.3341684935797056
+
+================================================================================
+B3/B4/N5. Within-month timing: purchases fall uniformly; 'join day' is the earliest of them
+================================================================================
+  n5_ks_p_min = 0.14703931028778053
+  n5_join_day_le3_obs = 0.2535
+  n5_join_day_le3_exp_min_uniform = 0.25236445078413106
+  n5_join_day_le15_obs = 0.7625555555555555
+  n5_join_day_le15_exp_min_uniform = 0.7579617382445725
+  n5_cont_first_day_le3_obs = 0.27028164024444246
+  n5_cont_first_day_le3_exp = 0.27291053339767957
+  n5_mean_n0_users_active_m0_m1 = 3.1230708661417323
+  n5_mean_n1_users_active_m0_m1 = 3.1201574803149605
+  n5_paired_p_n0_vs_n1 = 0.8889143207143295
+  n5_late_joiners_mean_n0 = 1.2902246508803885
+  n5_late_joiners_mean_n1 = 2.318154219793564
+  n5_early_joiners_mean_n0 = 3.396182032027504
+  n5_early_joiners_mean_n1 = 3.2396634397901023
+  n5_same_day_obs_extra_txns = 9420
+  n5_same_day_exp_extra_txns = 9326.031255491993
+  n5_same_day_user_day_share = 0.06192201949512622
+  n5_join_late_coef_raw = 0.24072403212922971
+  n5_join_late_p_raw = 1.003180901557295e-11
+  n5_join_late_coef_ctrl = 0.017916140500352017
+  n5_join_late_p_ctrl = 0.65390909783106
+  n5_join_joint_p_ctrl = 0.8958495839211342
+  n5_churn_M1_M3_join_le10 = 0.23463848463848463
+  n5_churn_M1_M3_join_gt20 = 0.28329872441412046
+  n5_m1_join_late_coef_raw = -0.3297094076492044
+  n5_m1_join_late_p_raw = 1.6145728499291258e-11
+  n5_m1_join_late_coef_ctrl_n0 = -0.11410520190575625
+  n5_m1_join_late_p_ctrl_n0 = 0.04107974292004418
+  n5_m1_join_joint_p_ctrl_n0 = 0.12260773432168394
+  n5_share_n0_ge4_join_le15 = 0.41090004522840345
+  n5_share_n0_ge4_join_gt15 = 0.03987433542774287
+  n5_mean_n0_join_le3 = 4.291723202170964
+  n5_mean_n0_all = 3.0237876350264306
+  b3_r3059_join_le3 = 0.7594533029612757
+  b3_r3059_join_gt20 = 0.5273118279569893
+  b3_r3059_n0eq1_join_le3 = 0.6431159420289855
+  b3_r3059_n0eq1_join_gt20 = 0.518498067366096
+  b3_last_day_coef = 0.0019521027140501702
+  b3_last_day_p = 0.1575703680564735
+  b4_second_within_7d_all_new = 0.39938410517588535
+  b4_second_within_14d_all_new = 0.6108610683406372
+  b4_second_within_30d_all_new = 0.8200284259149592
+  b4_median_gap_to_second_among_who_do = 8.0
+
+================================================================================
+N6. Silence trigger personalised by the user's usual frequency
+================================================================================
+  n6_all_day15_p_lost = 0.6060275080906149
+  n6_all_day10_p_lost = 0.479944896520792
+  n6_heavy_day10_p_lost = 0.5914760914760915
+  n6_heavy_day10_ci_lo = 0.5734316663613324
+  n6_heavy_day10_ci_hi = 0.6092773097984683
+  n6_heavy_day12_p_lost = 0.6717827626918536
+  n6_heavy_day15_p_lost = 0.7752043596730245
+  n6_light_day15_p_lost = 0.5826587795765878
+  n6_light_day20_p_lost = 0.7063596905076429
+  n6_mid_day15_p_lost = 0.5794548488781754
+  n6_heavy_share_silent_day10 = 0.3477527412941318
+  n6_heavy_avg_gmv_k = 1214.9821665260877
+  n6_light_avg_gmv_k = 190.24553088883346
+  n6_heavy_avg_gt5_users_jun25 = 479
+  n6_heavy5_share_churners = 0.11394432948401308
+  n6_heavy5_share_churned_gmv = 0.27251124708584284
+  n6_light_share_churners = 0.2498498097590281
+  n6_light_share_churned_gmv = 0.09429209392964188
+  n6_3to5_share_churned_gmv = 0.3039618218953943
+  n6_3to5_share_churners = 0.21901074694613176
+           users_jun25  hist_monthly_churn  churn_ci_lo  churn_ci_hi  recent_monthly_gmv  expected_future_months  expected_future_gmv  share_of_base  share_of_future_gmv
+band                                                                                                                                                                     
+avg <=1.5          502            0.311216     0.303003     0.319550        1.911730e+05                2.213198         4.231037e+05       0.166280             0.035256
+avg 1.5-3         1181            0.257679     0.252213     0.263221        4.012198e+05                2.880800         1.155834e+06       0.391189             0.226582
+avg 3-5            857            0.210807     0.204471     0.217286        6.906692e+05                3.743676         2.585641e+06       0.283869             0.367814
+avg >5             479            0.205687     0.197128     0.214519        1.206180e+06                3.861746         4.657961e+06       0.158662             0.370349
+  n6b_future_gmv_heavy5_m = 4.657961416566165
+  n6b_future_gmv_light_m = 0.42310366300366287
+  n6b_future_gmv_ratio_heavy_light = 11.009031175714119
+  n6b_heavy5_share_base = 0.1586618085458761
+  n6b_heavy5_share_future_gmv = 0.37034856195502114
+  n6b_3to5_share_base = 0.2838688307386552
+  n6b_3to5_share_future_gmv = 0.3678141073791596
+  n6b_light_share_base = 0.16628022524014574
+  n6b_light_share_future_gmv = 0.03525573432358722
+  n6b_heavy5_users_jun25 = 479
+  n6b_churn_avgle1p5 = 0.31121642969984203
+  n6b_churn_avg1p5_3 = 0.25767882910740053
+  n6b_churn_avg3_5 = 0.2108069904908764
+  n6b_churn_avg>5 = 0.20568743222074948
+                  pred6         real6
+band                                 
+avg <=1.5  3.738008e+05  7.827262e+05
+avg 1.5-3  9.431020e+05  1.177288e+06
+avg 3-5    1.933455e+06  1.878142e+06
+avg >5     3.472476e+06  2.942012e+06
+  n6b_oot_pred_real_ratio_heavy5 = 1.180306438243163
+  n6b_oot_pred_real_ratio_light = 0.4775626115430912
+  n6b_oot_pred_real_ratio_all = 0.9495165847504168
+           users  realised_gmv_next6m         total  share_of_users  share_of_next6m_gmv
+band                                                                                    
+avg <=1.5    683         7.827262e+05  5.346020e+08        0.174013             0.088008
+avg 1.5-3   1638         1.177288e+06  1.928398e+09        0.417325             0.317458
+avg 3-5     1041         1.878142e+06  1.955146e+09        0.265223             0.321861
+avg >5       563         2.942012e+06  1.656353e+09        0.143439             0.272673
+  n6c_realised6m_gmv_light_m = 0.7827262079062958
+  n6c_share_users_light = 0.17401273885350318
+  n6c_share_next6m_gmv_light = 0.08800758712776148
+  n6c_realised6m_gmv_b15_3_m = 1.1772881562881563
+  n6c_share_users_b15_3 = 0.4173248407643312
+  n6c_share_next6m_gmv_b15_3 = 0.31745795003011773
+  n6c_realised6m_gmv_b3_5_m = 1.8781421709894333
+  n6c_share_users_b3_5 = 0.26522292993630575
+  n6c_share_next6m_gmv_b3_5 = 0.32186127613157894
+  n6c_realised6m_gmv_heavy_m = 2.94201243339254
+  n6c_share_users_heavy = 0.14343949044585988
+  n6c_share_next6m_gmv_heavy = 0.2726731867105419
+  n6c_ratio_heavy_light = 3.758673727384306
+
+================================================================================
+N7. Credit field: repayment is a user-independent coin flip; limits not enforced
+================================================================================
+  n7_rows_touching_cap = 4043
+  n7_repay_rate_excl_cap = 0.34997014467507
+  n7_repay_indep_min_p = 0.18672370205625458
+  n7_repay_rate_range_lo = 0.32201334141904187
+  n7_repay_rate_range_hi = 0.3915547024952015
+  n7_user_dispersion_ratio = 1.0006819829529037
+  n7_user_dispersion_p = 0.4825383618341426
+  n7_user_dispersion_users = 6137
+  n7_p_repay_after_repay = 0.3497969882304569
+  n7_p_repay_after_none = 0.3503410489685235
+  n7_repaid_frac_min = 0.29411764705882354
+  n7_repaid_frac_max = 1.0
+  n7_repaid_frac_ks_uniform_0p3_1_p = 0.967270932975547
+  n7_first_txn_out_below_amount = 0.351
+  n7_first_txn_out_ratio_max = 1.0
+  n7_full_payoff_events = 111
+  n7_never_repay_users_obs = 2899
+  n7_never_repay_users_exp = 2810.875949649754
+  n7_purchases_over_headroom = 4032
+  n7_purchases_over_headroom_share = 0.02160887507369098
+  n7_purchases_at_zero_headroom = 2394
+  n7_amount_at_zero_headroom_k = 163.15162907268171
+  n7_amount_headroom_gt1m_k = 170.20099384676104
+  n7_spearman_limit_vs_freq = 0.005813690484691402
+  n7_spearman_limit_vs_freq_p = 0.5123964888812298
+  n7_balance_exit_1txn_k = 128.31901118304884
+  n7_balance_exit_20plus_k = 563.7281598513011
+  n7_churner_total_balance_bn = 6.124747
+  n7_churner_median_util_at_exit = 0.0645
+  n7_month_end_balance_positive_share = 0.9992400734595656
+
+================================================================================
+E1/E3/E4/E5 verification
+================================================================================
+  e1_avg_limit_m = 5.230044444444444
+  e1_median_util_month_end = 0.06801162790697675
+  e1_share_um_util_gt80 = 0.020913811664872394
+  e1_avg_monthly_gmv_k = 549.5673009942371
+  e3_hungry_users = 128
+  e3_hungry_avg_limit_m = 1.009375
+  e3_hungry_avg_txn = 4.6484375
+  e3_all_avg_txn = 3.3915203709837694
+  e3_small_limit_users_jun25 = 472
+  e3_small_limit_avg_txn_jun25 = 3.364406779661017
+  e3_large_limit_avg_txn_jun25 = 3.396544954848842
+  e4_raw_churn_no_repay = 0.26085296684118675
+  e4_raw_churn_repay = 0.23352108806154692
+  e4_coef = -0.00043152514149141883
+  e4_p = 0.9854207424745607
+  e5_big50_share_um = 0.01665973896416992
+  e5_big50_coef = 0.055022710503178446
+  e5_big50_p = 0.4579323543917735
+  e5_big50_share_limit_le1m = 0.7934131736526946
+
+================================================================================
+D1/D2/N8. Categories: a fixed personal mix with no sequence and no churn link
+================================================================================
+  d1_home_share_median_5plus = 0.6666666666666666
+  d1_distinct_pkg_n5 = 2.1475548060708265
+  d1_distinct_pkg_n10 = 2.7491803278688525
+  d1_breadth_raw_gap_pp = 6.868306909055688
+  d1_breadth_adj_gap_pp = 1.9018952324254859
+  d1_breadth_adj_ci_lo_pp = 0.0014947758704968173
+  d1_breadth_adj_ci_hi_pp = 3.802295688980475
+  d1_breadth_adj_p = 0.049820071153002736
+  d1_breadth_adj_exact_n_gap_pp = 1.7611204898989867
+  d1_breadth_adj_exact_n_p = 0.06957374775992778
+  n8_same_pkg_as_prev_obs = 0.5253386301909301
+  n8_same_pkg_as_prev_exp = 0.5263743413109832
+  n8_same_car_as_prev_obs = 0.4208280007644153
+  n8_same_car_as_prev_exp = 0.4216979846202083
+  n8_same_day_pairs = 12023
+  n8_same_day_same_car_obs = 0.42011145304832404
+  n8_same_day_same_car_exp = 0.4199970414693314
+  n8_lr_p_home_pkg = 0.5554463318206992
+  n8_lr_p_home_carrier = 0.4975637463838293
+  n8_home_share_coef = 0.05014048253059952
+  n8_home_share_p = 0.38168563164985736
+  n8_home_carrier_churn_min = 0.21452991452991452
+  n8_home_carrier_churn_max = 0.2579250720461095
+  n8_home_share_by_home_pkg_min = 0.6247202395350255
+  n8_home_share_by_home_pkg_max = 0.6693502923323087
+  n8_freq_by_home_pkg_anova_p = 0.24978764403105555
+  d2_first_pkg_months_min = 3.81140350877193
+  d2_first_pkg_months_max = 4.245179063360881
+  d2_first_pkg_months_kruskal_p = 0.4563285680469841
+  d2_exit_category_max_dev_pp = 0.2828839236903108
+  d2_first_carrier_m1_chi2_p = 0.6160872848037756
+  n8_light_month_pkg_vs_upgrade_chi2_p = 0.86439508119219
+  n8_light_month_pkg_vs_churn_chi2_p = 0.46690123187699484
+
+================================================================================
+N9. Cohort x behaviour: early vs late cohorts
+================================================================================
+  n9_freq_x_cohort_interaction_lr_p = 0.26017727705172505
+  n9_mean_n0_2024H1 = 3.0276372129233167
+  n9_mean_n0_2025H1 = 3.0394235997824905
+  n9_churn_M1_M3_2024H1 = 0.2421448874548667
+  n9_churn_M1_M3_2025H1 = 0.25030317729808393
+  n9_n0_dist_chi2_p = 0.6483105155288946
+  n9_repay_rate_2024H1 = 0.3502883076450856
+  n9_repay_rate_2025H1 = 0.35174052341696965
+
+================================================================================
+Multiple-testing summary (Holm) for the new-finding headline tests
+================================================================================
+                                                            p      holm_adj
+N1 log 3m avg                                    3.863153e-30  5.022099e-29
+N5 join day raw                                  1.003181e-11  1.203817e-10
+N2 tenure raw                                    6.046685e-06  6.651354e-05
+N2 tenure | running freq (expect null)           2.043832e-01  1.000000e+00
+N1 churners last month vs own avg (expect null)  2.510173e-01  1.000000e+00
+N9 freq x cohort (expect null)                   2.601773e-01  1.000000e+00
+N1 this-month deviation | 3m avg (expect null)   2.820808e-01  1.000000e+00
+N7 repay dispersion (expect null)                4.825384e-01  1.000000e+00
+N8 home carrier (expect null)                    4.975637e-01  1.000000e+00
+N8 home pkg (expect null)                        5.554463e-01  1.000000e+00
+N3 ticket ANOVA (expect null)                    6.498925e-01  1.000000e+00
+N5 n0 vs n1 paired (expect null)                 8.889143e-01  1.000000e+00
+N5 join day | n0 + freq (expect null)            8.958496e-01  1.000000e+00
+
+Wrote 326 numbers to outputs/eda_numbers.json

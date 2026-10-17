@@ -1,0 +1,4 @@
+tier,users,hist_churn_rate,expected_churners_next_month
+High (1 txn),752,0.295,221.726
+Medium (2-3 txns),1086,0.248,269.846
+Low (4+ txns),1181,0.215,253.699

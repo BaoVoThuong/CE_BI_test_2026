@@ -1,0 +1,39 @@
+package_code,carrier,transactions,mean_ticket_vnd,gmv_vnd
+Channel Partner,Cross Border,1,552000.00,552000.00
+Channel Partner,Insurance - Distribution,1,122000.00,122000.00
+Digital Services,Insurance - Distribution,1,34000.00,34000.00
+Channel Partner,Donation,2,191500.00,383000.00
+Digital Services,VNG Merchant,5413,168985.41,914718000.00
+Digital Services,Game,5641,166937.42,941694000.00
+Digital Services,Movies,5654,170025.47,961324000.00
+Mobility Services,Cross Border,5681,169340.26,962022000.00
+Channel Partner,Other services,5727,171059.72,979659000.00
+Channel Partner,Game,5750,170629.74,981121000.00
+Strategic Partnership,Traveling,5814,170986.41,994115000.00
+Channel Partner,Transportation,5815,169219.95,984014000.00
+Mobility Services,RST,5839,171010.62,998531000.00
+Digital Services,Traveling,5882,168215.91,989446000.00
+Daily life service,FnB,5891,169466.47,998327000.00
+Daily life service,Retail,5900,171936.44,1014425000.00
+Channel Partner,Traveling,5907,170367.53,1006361000.00
+Channel Partner,Billing,5944,170041.55,1010727000.00
+Channel Partner,FnB,5950,174380.34,1037563000.00
+Channel Partner,Marketplace,5959,169553.78,1010371000.00
+Digital Services,Billing,6000,171394.83,1028369000.00
+Channel Partner,Shopping,6077,165503.37,1005764000.00
+Digital Services,Entertainment,6077,168760.08,1025555000.00
+Strategic Partnership,Entertainment,6087,171736.65,1045361000.00
+Channel Partner,Retail,6089,167364.59,1019083000.00
+Channel Partner,Canteen & Others,6147,167891.33,1032028000.00
+Channel Partner,Entertainment,6158,167050.99,1028700000.00
+Digital Services,Donation,6170,168077.63,1037039000.00
+Digital Services,Telco,6173,172340.35,1063857000.00
+Insurance - Distribution,Insurance - Distribution,6191,169575.84,1049844000.00
+Digital Services,Other Services,6231,174258.71,1085806000.00
+Mobility Services,3PL,6234,167707.57,1045489000.00
+Daily life service,Marketplace,6279,169289.54,1062969000.00
+Voucher Selling,Voucher Selling,6315,168106.73,1061594000.00
+Channel Partner,Other Services,6327,168683.26,1067259000.00
+Daily life service,Other Services,6376,168081.71,1071689000.00
+Strategic Partnership,Marketplace,6495,170867.44,1109784000.00
+Daily life service,PSP,6496,170127.31,1105147000.00

@@ -1,0 +1,38 @@
+{
+  "task": "no transaction in the next calendar month among currently active users",
+  "prediction_cutoff": "end of current active month",
+  "train_months": [
+    "2024-01",
+    "2024-10"
+  ],
+  "validation_months": [
+    "2024-11",
+    "2024-12"
+  ],
+  "test_months": [
+    "2025-01",
+    "2025-05"
+  ],
+  "train_rows": 34839,
+  "validation_rows": 7976,
+  "test_rows": 17431,
+  "chosen_feature_set": "rich",
+  "chosen_features": 77,
+  "chosen_grid_index": 2,
+  "chosen_best_iteration": 28,
+  "validation_auc": 0.5639944616651715,
+  "test_auc": 0.5715737476607042,
+  "test_auc_cluster_bootstrap_95pct_ci": [
+    0.5617077130901404,
+    0.5816671750517072
+  ],
+  "test_average_precision": 0.2964520242776103,
+  "test_base_churn_rate": 0.24410532958522174,
+  "test_brier": 0.18245679109346918,
+  "test_frequency_only_auc": 0.5553334160960677,
+  "test_top_decile_churn": 0.33371559633027525,
+  "test_bottom_decile_churn": 0.2002294893861159,
+  "test_top_20pct_churn_capture": 0.2688601645123384,
+  "reached_auc_0_8": false,
+  "xgboost_version": "3.2.0"
+}

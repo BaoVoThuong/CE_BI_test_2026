@@ -1,0 +1,6 @@
+,lever,assumption,extra_monthly_gmv_jun26,share_of_monthly_gmv
+0,Recover new users to the 2024 average (+548/month),"inflow 596 -> 1,144 over 3 months",1219219458.861,0.631
+1,+100 new users a month,same quality as today's cohorts,225500463.193,0.117
+2,Retention: every 1-3 txn user churns like a 4+ user,assumption,223245661.048,0.116
+3,Upgrade 10% of medium users to 4 txns a month,habit sticks; ~+260K VND each,28182254.953,0.015
+4,Upgrade 10% of light users to 2 txns a month,habit sticks; +1 purchase each,12759214.765,0.007

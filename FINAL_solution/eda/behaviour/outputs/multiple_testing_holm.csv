@@ -1,0 +1,14 @@
+,p,holm_adj
+N1 log 3m avg,3.863153383144243e-30,5.022099398087516e-29
+N5 join day raw,1.003180901557295e-11,1.203817081868754e-10
+N2 tenure raw,6.046685152893254e-06,6.65135366818258e-05
+N2 tenure | running freq (expect null),0.2043831608293526,1.0
+N1 churners last month vs own avg (expect null),0.25101728132884304,1.0
+N9 freq x cohort (expect null),0.26017727705172505,1.0
+N1 this-month deviation | 3m avg (expect null),0.28208084320224036,1.0
+N7 repay dispersion (expect null),0.4825383618341426,1.0
+N8 home carrier (expect null),0.4975637463838293,1.0
+N8 home pkg (expect null),0.5554463318206992,1.0
+N3 ticket ANOVA (expect null),0.649892458122348,1.0
+N5 n0 vs n1 paired (expect null),0.8889143207143295,1.0
+N5 join day | n0 + freq (expect null),0.8958495839211342,1.0

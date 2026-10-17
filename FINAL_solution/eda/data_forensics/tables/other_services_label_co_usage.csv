@@ -1,0 +1,6 @@
+label_a,label_b,users_with_both,expected_if_same_merchant(random_label),ratio
+Other services,Other Services,253,1230.5,0.206
+Billing,FnB,273,1263.2,0.216
+Shopping,Retail,293,1259.1,0.233
+Game,Entertainment,275,1232.9,0.223
+Other Services,Marketplace,257,1285.7,0.2

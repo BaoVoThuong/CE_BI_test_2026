@@ -1,0 +1,213 @@
+<!--
+  Source of report_concise.html: the short version of the analysis (every brief question answered, minimum text).
+  Built by build_html.py with the same machinery as report.html (charts inlined, figures numbered, numbers checked
+  against outputs/key_numbers.json). Full detail: report.html; question by question: report_by_question.html.
+-->
+
+<header class="hero" id="top">
+  <p class="eyebrow">Zalopay BNPL · Credit Enablement · Retention &amp; growth review · Jan 2024 – Jun 2025 · 18,000 users</p>
+  <h1>BNPL isn't losing users faster. It's finding fewer of them.</h1>
+  <p class="lede">Churn has been flat at ~1 in 4 active users a month for 18 months. New users fell 56%. Retention work can slow the decline; only restoring inflow reverses it.</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="label">Active users, Jun 2025</div><div class="value">3,019</div><div class="delta bad">−27% vs Jul–Oct 2024</div></div>
+    <div class="kpi"><div class="label">New users, Jun 2025</div><div class="value">596</div><div class="delta bad">−56% vs Q1 2024</div></div>
+    <div class="kpi"><div class="label">Monthly churn</div><div class="value">24.9%</div><div class="delta">flat for 18 months</div></div>
+    <div class="kpi"><div class="label">Users who came back</div><div class="value">0</div><div class="delta">of 14,231 lapsed</div></div>
+  </div>
+
+  <figure id="f-paths">
+    <img data-fig="fig7_onepager_mau_paths.png" alt="Monthly active users, actual to Jun 2025, then three paths to Jun 2026: about 4,600 if new users return to the 2024 level, about 2,450 if they stop falling, about 1,550 if they keep falling.">
+    <figcaption>Active users by Jun 2026: ~1,550 if inflow keeps falling, ~2,450 if it stops falling, ~4,600 back at 2024 inflow (scenarios, not forecasts).</figcaption>
+  </figure>
+
+  <div class="panel reco">
+    <h3>What to do</h3>
+    <ol>
+      <li><b>Find where new users dropped and fix it</b> (Growth + Risk): the biggest lever, ~+2,150 active users by Jun 2026.</li>
+      <li><b>Test a mid-month reminder</b> to users silent by day 15 (CRM): 61% of them are otherwise lost; reads out in 1–3 months.</li>
+      <li><b>Then test a second-purchase nudge and frequency rewards</b> (Product + CRM).</li>
+    </ol>
+  </div>
+</header>
+
+<!-- ============================================================ -->
+<section class="chapter" id="data" data-toc="Data notes" data-num="0">
+  <div class="chap-head"><span class="chap-num">Data notes</span></div>
+  <ul class="tight">
+    <li><b>18 months, not 6:</b> 204,694 transactions, Jan 2024 – Jun 2025. All used.</li>
+    <li><b>104 planted rows</b> (TXN00204591–694) fake the Q1c "N = 4" result. Each is built from the user's own history (balance copied in 104 of 104). Excluded; nothing else changes by more than 1pp.</li>
+    <li><b>The file is simulated:</b> balances, amounts, limits, merchants and timing follow simple rules (<a href="#bonus">Bonus</a>), so no credit or category conclusions are drawn from them.</li>
+  </ul>
+</section>
+
+<!-- ============================================================ -->
+<section class="chapter" id="q1a" data-toc="Q1a · Definition" data-num="1">
+  <div class="chap-head"><span class="chap-num">Q1a</span><span class="tag">Retention definition</span></div>
+  <h2>Retained in M<i>k</i> = at least one BNPL purchase in the <i>k</i>-th calendar month after the first purchase</h2>
+  <ul class="tight">
+    <li><b>Purchase = value event.</b> BNPL earns only when the line is used; it is the only behaviour in the file.</li>
+    <li><b>Monthly = billing cycle.</b> The median user buys 3 times a month, so weekly is too noisy and quarterly too slow.</li>
+    <li><b>Calendar months</b> match statements and reporting. The first month is a full month here (3.23 purchases in M0 vs 3.22 in M1 for the same users).</li>
+  </ul>
+  <p class="small">Tracked alongside: GMV retention and monthly churn (active in month <i>t</i>, nothing in <i>t+1</i>).</p>
+</section>
+
+<!-- ============================================================ -->
+<section class="chapter" id="q1b" data-toc="Q1b · Cohorts" data-num="2">
+  <div class="chap-head"><span class="chap-num">Q1b</span><span class="tag">Cohort retention</span></div>
+  <h2>Every cohort leaks the same way; the cohorts themselves are shrinking</h2>
+  <p class="takeaway">Retention didn't break. 73% of a cohort is active in M1, 41% in M3, 4% in M12, for every cohort. What changed is cohort size: the decline in active users is an acquisition problem.</p>
+
+  <figure id="f-heat">
+    <img data-fig="fig2_cohort_heatmap.png" alt="Cohort retention heatmap: M1 between 71% and 76% for every cohort, decaying to a few percent by M12, while cohort sizes fall from 1,382 to 596.">
+    <figcaption>Columns barely change across cohorts; cohort sizes (left) fall every month.</figcaption>
+  </figure>
+
+  <div class="table-wrap"><table class="num">
+    <tr><th>Weighted average</th><th>M1</th><th>M2</th><th>M3</th><th>M6</th><th>M12</th></tr>
+    <tr><td>User retention</td><td>73.0%</td><td>54.3%</td><td>41.2%</td><td>18.5%</td><td>4.1%</td></tr>
+    <tr><td>GMV retention</td><td>75.8%</td><td>58.5%</td><td>44.7%</td><td>21.7%</td><td>5.0%</td></tr>
+  </table></div>
+
+  <h3>Patterns and anomalies</h3>
+  <ol class="findings">
+    <li><b>Stable:</b> M1 is 71.1–75.6% in all 17 cohorts (chi-square p = 0.51).</li>
+    <li><b>No plateau:</b> ~1 in 4 active users leaves every month at every tenure; retention halves every ~2.4 months.</li>
+    <li><b>Nobody returns:</b> 0 of 14,231 lapsed users ever bought again.</li>
+    <li><b>Shrinking cohorts:</b> new users fell from ~1,370 a month (Q1 2024) to 596, a steady 4.7% a month. Keeping each cohort's retention but giving every month since Nov 2024 October's 1,063 new users gives June MAU of ~4,340 instead of 3,019.</li>
+  </ol>
+
+  <figure id="f-mau">
+    <img data-fig="fig1_mau_new_vs_returning.png" alt="Stacked bars of monthly active users, returning and new, Jan 2024 to Jun 2025; peak 4,155 in Oct 2024, 3,019 in Jun 2025, with the new-user part shrinking every month.">
+    <figcaption>Returning users stopped growing once the new-user bars (orange) started to shrink.</figcaption>
+  </figure>
+
+  <h3>Hypotheses to test</h3>
+  <div class="table-wrap"><table>
+    <tr><th>Pattern</th><th>Hypothesis</th><th>Data to confirm</th></tr>
+    <tr><td>Shrinking cohorts, same quality</td><td>Fewer users reached or approved (eligibility, marketing, partner traffic)</td><td>Funnel by channel: eligible → approved → first purchase</td></tr>
+    <tr><td>Biggest drop right after M0</td><td>Friction at the first statement, or promo-driven first use</td><td>Repayment/fee data; campaign attribution</td></tr>
+    <tr><td>Zero reactivation</td><td>Accounts locked after inactivity, or an extract artefact</td><td>Account-status logs</td></tr>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section class="chapter" id="q1c" data-toc="Q1c · First-month N" data-num="3">
+  <div class="chap-head"><span class="chap-num">Q1c</span><span class="tag">"≥ N first-month purchases retain better"</span></div>
+  <h2>True in direction, false as a threshold: there is no magic N</h2>
+  <p class="takeaway">M1 rises gradually from 69% at one purchase to 77–79% at four to eight. Any cut from N = 2 to 8 gives a similar gap (+5.6 to +6.8pp). The apparent N = 4 comes from the 104 planted rows. Use the 2nd purchase as the milestone, and test it.</p>
+
+  <figure id="f-q1c">
+    <img data-fig="fig4_q1c_first_month_txns_vs_m1.png" alt="M1 retention by first-month purchases: raw data spikes to 82.1% at N = 4; clean data rises smoothly from 68.6% to 79.3%.">
+    <figcaption>The raw spike at N = 4 (orange) disappears without the planted rows (blue).</figcaption>
+  </figure>
+
+  <div class="table-wrap"><table class="num">
+    <tr><th>N</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+    <tr><td>Users</td><td>5,414</td><td>3,531</td><td>2,843</td><td>2,074</td><td>1,358</td><td>849</td><td>516</td><td>318</td></tr>
+    <tr><td>M1, as delivered</td><td>68.6%</td><td>71.6%</td><td>73.8%</td><td><b>82.1%</b></td><td>78.0%</td><td>77.0%</td><td>78.1%</td><td>79.3%</td></tr>
+    <tr><td>M1, clean</td><td>68.6%</td><td>71.6%</td><td>73.8%</td><td><b>77.1%</b></td><td>78.0%</td><td>77.0%</td><td>78.1%</td><td>79.3%</td></tr>
+  </table></div>
+
+  <ul class="tight">
+    <li><b>Why the raw data misleads:</b> exactly 4 (82.1%) beats 5–8 (77.9%, p = 0.0003). Engagement doesn't peak and fall back. The excess traces to 104 rows, each giving a "4 purchases, no M1" user one M1 purchase.</li>
+    <li><b>Clean data:</b> N = 4 is in line with 5–8 (p = 0.54); a regression with cohort controls gives similar early steps (log-odds +0.12, +0.11, +0.18).</li>
+    <li><b>What to do instead:</b> 31% of new users stop at one purchase, and 61% of new users make a second purchase by day 14. Nudge the second purchase in week 2 and measure it in a holdout test; expect a few points of M1, not +9pp.</li>
+  </ul>
+</section>
+
+<!-- ============================================================ -->
+<section class="chapter" id="churn" data-toc="Part 2A · Churn" data-num="4">
+  <div class="chap-head"><span class="chap-num">Part 2 · Option A</span><span class="tag">Churn</span></div>
+  <h2>Churners are users who usually buy rarely, and they stop without warning</h2>
+  <p class="takeaway">Churn = active this month, no purchase next month (83% of users have churned). The one robust signal is how often a user usually buys. Limit, ticket and category don't matter. Prediction is weak (AUC 0.56), so act on timing: silence by mid-month.</p>
+
+  <h3>Who shows signs of churn</h3>
+  <div class="table-wrap"><table>
+    <tr><th>Signal</th><th>Higher risk</th><th>Lower risk</th></tr>
+    <tr><td>Usual frequency (3-month average)</td><td>≤1 a month: <b>32.5%</b></td><td>&gt;6 a month: <b>19.0%</b></td></tr>
+    <tr><td>Purchases this month</td><td>1: 29.5%</td><td>4+: 21.5%</td></tr>
+    <tr><td>No purchase yet by day 15 (all users)</td><td colspan="2"><b>61%</b> buy nothing more that month (average churn 25%)</td></tr>
+    <tr><td>No purchase by day 10 (users with 5+ a month)</td><td colspan="2"><b>60%</b> lost: 13% of churners, 29% of their GMV</td></tr>
+  </table></div>
+
+  <figure id="f-usual">
+    <img data-fig="fig13_churn_follows_usual_frequency.png" alt="Left: churn falls from 32.5% to 19.0% by 3-month average frequency but only from 27.1% to 20.6% by this month's purchases. Right: share lost when silent by day 10 or day 15, by usual frequency band.">
+    <figcaption>Usual frequency separates risk better than one month; frequent users can be reached by day 10.</figcaption>
+  </figure>
+
+  <h3>How they differ from users who stay</h3>
+  <div class="table-wrap"><table class="num">
+    <tr><th></th><th>Stayed</th><th>Churned</th></tr>
+    <tr><td>Purchases in the month (before leaving / staying)</td><td>3.32</td><td>2.98</td></tr>
+    <tr><td>Share of 1-purchase months</td><td>25.8%</td><td>32.5%</td></tr>
+    <tr><td>2nd purchase within 30 days of joining</td><td>91.4%</td><td>80.5%</td></tr>
+    <tr><td>Average ticket / credit limit</td><td>169K / 5.25M</td><td>170K / 5.22M</td></tr>
+  </table></div>
+  <ul class="tight">
+    <li><b>Same on everything else:</b> limit, ticket, category and recency show no effect once frequency is controlled (p &gt; 0.5). Tenure only looks protective because light users leave first.</li>
+    <li><b>No warning:</b> users don't fade before leaving, and one unusual month adds nothing to the 3-month average. That is why AUC is only 0.56.</li>
+  </ul>
+
+  <h3>Recommendations</h3>
+  <div class="table-wrap"><table>
+    <tr><th>Action</th><th>Owner</th><th class="r">Potential (by Jun 2026)</th></tr>
+    <tr><td><b>Mid-month reminder</b> to last month's users silent by day 15 (day 10 for 5+ a month)</td><td>CRM</td><td class="r">+270 users if 1 in 10 is saved</td></tr>
+    <tr><td><b>Frequency rewards</b> for users who usually buy 1–3 times a month; judge on churn after the incentive ends</td><td>Product + CRM</td><td class="r">up to ~+390 users</td></tr>
+    <tr><td><b>Second-purchase nudge</b> in week 2 for new users</td><td>Product + CRM</td><td class="r">up to ~+20 users</td></tr>
+    <tr><td><b>Ask why nobody returns</b> (account lock?) before any win-back</td><td>Risk</td><td class="r">~15,000 dormant users</td></tr>
+  </table></div>
+  <p class="small">Upper bounds before incentive cost and credit losses. Even the best case only brings churn to ~21%; holding today's base needs ~730 new users a month.</p>
+</section>
+
+<!-- ============================================================ -->
+<section class="chapter" id="growth" data-toc="Part 2B · Growth" data-num="5">
+  <div class="chap-head"><span class="chap-num">Part 2 · Option B</span><span class="tag">Growth</span></div>
+  <h2>The growth lever is new-user inflow; no existing segment is growing</h2>
+  <p class="takeaway">Every segment shrank from Jun 2024 to Jun 2025 (light −33%, medium −26%, heavy −19% users). Like-for-like, 100 extra new users a month add as much GMV as the best-case retention programme. Back at 2024 inflow, monthly GMV is +63%.</p>
+
+  <figure id="f-gmv">
+    <img data-fig="fig11_growth_option_b.png" alt="Left: cohort size vs M1 retention for 16 cohorts, a weak non-significant link. Right: extra monthly GMV by Jun 2026 per lever: 2024 inflow +63%, +100 new users +11.7%, best-case retention +11.6%, upgrading 10% of medium users +1.5%, light users +0.7%.">
+    <figcaption>Right: in one unit (GMV), new-user volume dominates every lever on existing users. Left: bigger cohorts have not retained worse.</figcaption>
+  </figure>
+
+  <ul class="tight">
+    <li><b>Value is predictable:</b> a new user brings ~1.85M VND GMV in the first 7 months, stable across cohorts. That gives a CAC ceiling of take rate × 1.85M.</li>
+    <li><b>Quality risk is small but unproven:</b> 2024 volumes imply about −1.3pp of M1 (95% CI −3.7 to +1.1). Guard new channels with M1 ≥ 71%.</li>
+    <li><b>Best existing segment = medium users (2–3 a month),</b> but moving 10% of them to 4 a month adds only +1.5% GMV.</li>
+  </ul>
+  <p><b>What to do:</b> trace the funnel by channel to find the step that shrank, restore ≥730 new users a month (holds the base) and target ~1,150 (2024 level). Ask Growth what drove Oct 2024, the only month above trend (1,063 vs ~950 expected).</p>
+</section>
+
+<!-- ============================================================ -->
+<section class="chapter" id="plan" data-toc="Plan & tests" data-num="6">
+  <div class="chap-head"><span class="chap-num">Plan</span><span class="tag">How we'll know it worked</span></div>
+  <h2>Fix inflow first; test the retention ideas in parallel</h2>
+  <div class="table-wrap"><table class="actions">
+    <tr><th>When</th><th>Action</th><th>KPI</th></tr>
+    <tr><td>2 weeks</td><td>Reconcile the −56% with the official dashboard; find the funnel step that shrank; get the real repayment ledger</td><td>New users a month</td></tr>
+    <tr><td>1–3 months</td><td><b>Test B</b>: mid-month reminder (387 / 1,528 users per arm for +10 / +5pp)</td><td>Purchase by month end</td></tr>
+    <tr><td>4–13 months</td><td><b>Test A</b>: second-purchase nudge (357 / 1,474 per arm)</td><td>Active in days 30–59</td></tr>
+    <tr><td>Ongoing</td><td>Guardrails: cohort M1, DPD, incentive cost, contact fatigue</td><td>Net contribution</td></tr>
+  </table></div>
+  <p class="small">Both tests detect only large effects; a +2pp lift needs ~9,400 users per arm. <code>pilot.py</code> does stratified assignment and intention-to-treat evaluation. <b>Don't:</b> set a "≥4 purchases" target, segment on one month, or take limit decisions from this file.</p>
+  <p class="ask"><b>Decision needed:</b> approve the two-week inflow review and Test B. One-page version for the Business Lead (Part 3): <a href="one_pager.html">one_pager.html</a>.</p>
+</section>
+
+<!-- ============================================================ -->
+<section class="chapter" id="bonus" data-toc="Bonus" data-num="7">
+  <div class="chap-head"><span class="chap-num">Bonus</span><span class="tag">Worth knowing</span></div>
+  <h2>The extract is simulated, and some "insights" are its rules showing through</h2>
+  <figure id="f-balance">
+    <img data-fig="fig12_balance_field_rules.png" alt="Left: the balance falls on about 35% of purchases whatever the days since the previous purchase. Right: when it falls, the share kept is spread evenly from 0% to 70%.">
+    <figcaption>The balance falls on ~35% of purchases regardless of timing, by a flat random share. Real repayments don't behave like this.</figcaption>
+  </figure>
+  <ul class="tight">
+    <li><b>Balance field:</b> previous + purchase (63.7%), capped at the limit (1.3%), or a random pay-down (35.0%). Utilisation, "credit-hungry" users and inferred repayment say nothing about customers.</li>
+    <li><b>Credit control:</b> no purchase exceeds 60% of the limit (698 exactly at it), yet 4,032 went through above available headroom. Is that a production rule or a simulation rule?</li>
+    <li><b>No onboarding waves:</b> 25.4% of first purchases on days 1–3 vs 25.2% expected by chance; the first month is a full month.</li>
+    <li><b>Real and useful:</b> churn risk is a stable trait (target on 3-month averages); tenure adds nothing (p = 0.90); heavy users are 38% of users but 65% of GMV; ticket size is not a user trait, so value = how often × how long.</li>
+  </ul>
+  <p class="small">Full analysis and evidence: <a href="report.html">report.html</a> (story) and <code>eda/</code> (two deep-EDA reviews).</p>
+</section>

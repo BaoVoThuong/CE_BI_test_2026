@@ -1,0 +1,7 @@
+,test,baseline,absolute_lift_pp,users_per_arm,eligible_per_month,months_to_recruit
+0,"A. Second-purchase nudge (day 14, one purchase so far)",0.598,2.0,9351,231.927,81
+1,"A. Second-purchase nudge (day 14, one purchase so far)",0.598,5.0,1474,231.927,13
+2,"A. Second-purchase nudge (day 14, one purchase so far)",0.598,10.0,357,231.927,4
+3,B. Mid-month reminder (no purchase by day 15),0.394,2.0,9449,1240.829,16
+4,B. Mid-month reminder (no purchase by day 15),0.394,5.0,1528,1240.829,3
+5,B. Mid-month reminder (no purchase by day 15),0.394,10.0,387,1240.829,1

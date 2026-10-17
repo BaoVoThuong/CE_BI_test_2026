@@ -1,0 +1,5 @@
+band,share_of_churners,share_of_churned_gmv,churn_rate,share_of_active
+avg <=1.5,0.2498,0.0943,0.3112,0.2
+avg 1.5-3,0.4172,0.3292,0.2577,0.4033
+avg 3-5,0.219,0.304,0.2108,0.2588
+avg >5,0.1139,0.2725,0.2057,0.138

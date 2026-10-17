@@ -1,0 +1,5 @@
+check,count,meaning
+Rare package/carrier pairs (<10 records),5,Source mapping needed; rarity alone is not an error
+Rows appended after contiguous per-user ID blocks,104,Could be backfill or an injected batch; confirm source
+First balance below first purchase,6318,Balance timestamp/definition is unknown
+Purchase when prior and current recorded balances equal limit,1589,Balance may be capped or transaction/balance times may differ

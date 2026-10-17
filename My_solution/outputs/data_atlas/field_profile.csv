@@ -1,0 +1,9 @@
+column,missing,distinct
+transaction_id,0,204694
+user_id,0,18000
+trxn_date,0,547
+trxn_amount,0,1192
+package_code,0,7
+carrier,0,22
+total_outstanding,0,2718
+total_limit,0,95
