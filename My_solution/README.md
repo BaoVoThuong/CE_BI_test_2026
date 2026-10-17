@@ -15,6 +15,7 @@ Code và output:
 python My_solution/analysis.py
 python My_solution/next_steps.py
 python My_solution/data_atlas.py
+python My_solution/segment_mix.py
 python My_solution/churn_xgboost.py
 python My_solution/churn_xgboost_v2.py
 ```
