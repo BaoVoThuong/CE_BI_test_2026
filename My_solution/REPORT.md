@@ -25,6 +25,20 @@ The more striking pattern is the **shrinking inflow**. New users averaged 1,367 
 
 ![Monthly active users](outputs/active_users.png)
 
+**Category does not explain either retention or the decline.** I repeated the checks by `package_code` and by the 33 package × carrier cells (`Other services` merged into `Other Services`):
+
+| Check | Result | Reading |
+|---|---|---|
+| Retention by **first package** | M1 72.1–74.6% across 7 packages (p = 0.71); M3 and M6 also flat (p = 0.78, 0.88) | No category is a better entry point |
+| Retention by **first package × carrier** | M1 67.7–77.9% across 33 cells of ~500 users each (p = 0.44); M3 p = 0.60, M6 p = 0.63 | The spread matches sampling noise for ~500 users per cell, so the top and bottom cells are not real winners or losers |
+| **New users by first package**, H1 2024 → H1 2025 | −42% to −49% in every package (total −45%); package mix of new users unchanged (p = 0.67, largest share shift 1.1 points) | Acquisition fell across the board, not in one category |
+| New users by **first cell** | −30% to −58% per cell, consistent with noise at ~230 users per cell (p = 0.74) | No single merchant group lost its inflow |
+| **Active users by package**, Oct 2024 → Jun 2025 | −21% to −28% in every package vs −27% for total MAU; each package's share of MAU moves by under 1.7 points | Every category shrinks with the base |
+
+So the shrinking base is not a partner or category exiting: if one merchant group had stopped, its inflow and its active users would fall faster than the rest, and none does. This narrows the acquisition audit below to the funnel and channel steps, not merchant partnerships. Category-level volumes are also nearly identical by construction (each of the 33 cells carries 2.4–3.5% of transactions, Channel Partner | Other Services ~6% after the merge), so "Channel Partner is the largest package" only reflects that it lists 12 carriers. Quarter-to-quarter share moves reverse rather than trend (lag-1 correlation −0.27 to +0.01). [Tables and code](segment_mix.py); [chart](outputs/segment_mix/segment_mix.png).
+
+![Package and carrier checks](outputs/segment_mix/segment_mix.png)
+
 **Anomaly and hypotheses.** No user in the file buys again after a fully inactive calendar month, even among 14,226 users whose lapse had at least two later months in which a return could have appeared. A hard product or credit-status rule, an export that preserves only first activity streaks, or unusually low organic reactivation could explain this. Check account-status events and the extraction logic before treating this as a product fact. For the falling first-purchase count, inspect monthly eligible → invited → approved → first-purchase counts, channel mix and campaign spend. For early drop-off, inspect first statement, repayment, fees and account restrictions. These are hypotheses, not findings from the transaction table.
 
 ### Q1c. Is there a minimum first-month transaction count N?
@@ -59,9 +73,11 @@ To remove unequal exposure in the first calendar month, I compared purchases in 
 
 The frequency pattern remains after a simple comparison within tenure bands: direct standardisation to the common tenure mix gives 29.7%, 24.8% and 21.0% for the three groups. This is useful for prioritising outreach, but is **not an intervention effect**. More motivated users may both transact more and stay longer. Repeated user-months also mean these percentages are descriptive, not independent-trial causal estimates. The [stratified table](outputs/churn_by_tenure_and_frequency.csv) lets a reviewer inspect the pattern.
 
+**What churners buy is the same as what stayers buy.** In active months followed by churn, the package mix differs from stayers' by at most 0.6 points (Digital Services 26.6% vs 26.0%). Within each purchase-count band, churn is about the same whatever the month's main package: for single-purchase months it ranges 27–31% across packages (p = 0.51). By package × carrier cell of the month's last purchase, frequency-standardised churn spans only 23.6–26.5% across 33 cells (p = 0.57). Buying across several packages also does not help once purchase count is fixed: two-purchase months churn at 25.5% whether both purchases are in one package or two (gap −0.03 points on average over 2–5 purchases). The only thing that separates churners is **how often** they buy (2.96 vs 3.32 purchases in the month), not **what** they buy. Targeting should therefore use frequency and recency, and cross-sell to a new category should not be pitched as a retention lever. [Churn tables](outputs/segment_mix/).
+
 **Business decision.** Current inflow is too low to replace exits. At June's 3,022 active users, a 24.3% historical monthly exit rate implies roughly 733 first-time or reactivated users per month to hold the base, 137 more than June's 596 first-time users. The exact requirement changes with churn and reactivation, so use this as a planning check rather than a forecast.
 
-1. **Growth + Risk: audit acquisition first.** Reconcile the extract with official MAU and trace eligible → invited → approved → first purchase monthly. Identify the step behind the decline; do not infer a marketing or credit-policy cause from purchase records alone. Success metric: recovered first purchasers without worse credit losses.
+1. **Growth + Risk: audit acquisition first.** Reconcile the extract with official MAU and trace eligible → invited → approved → first purchase monthly. Identify the step behind the decline; do not infer a marketing or credit-policy cause from purchase records alone. New users fell by the same ~45% in every package and carrier, so start with funnel and channel steps rather than merchant partnerships. Success metric: recovered first purchasers without worse credit losses.
 2. **Product + CRM: test an early second-use prompt.** Randomise eligible new users to an offer or reminder versus a holdout. Measure incremental M1 retention, second purchase within 30 days and net contribution after incentive and credit cost. Do not set a four-purchase target until the 104 records are explained.
 3. **CRM: pilot a lapse reminder with a holdout.** Prior-month active users who have not transacted by mid-month are a reasonable contact group. Measure incremental transactions and next-month retention, rather than assuming a reminder saves them. Check contact fatigue.
 4. **Risk + Data Engineering: clarify reactivation and balances.** Confirm whether an inactive account remains eligible, and join repayments, delinquency and account-status history before a win-back or credit-limit campaign.

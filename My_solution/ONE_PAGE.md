@@ -8,7 +8,7 @@ Monthly active users fell from **4,162 in Oct 2024 to 3,022 in Jun 2025 (−27%)
 
 ## Why we think it is happening
 
-The count of first-time buyers has shrunk while cohort retention is broadly similar. Users who buy just once in a month are more likely to stop (30%) than those who buy four or more times (21%). The data cannot tell whether this is caused by marketing, approvals, repayment experience or a product restriction. No user returns after an inactive month in this extract, so check how the extract was built.
+The count of first-time buyers has shrunk while cohort retention is broadly similar. Users who buy just once in a month are more likely to stop (30%) than those who buy four or more times (21%). It is not one merchant category: new and active users fell by about the same amount in all 7 packages and 33 merchant groups, and churners buy the same things as stayers. The data cannot tell whether this is caused by marketing, approvals, repayment experience or a product restriction. No user returns after an inactive month in this extract, so check how the extract was built.
 
 ## What to do in the next two weeks
 
